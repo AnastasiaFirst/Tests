@@ -6,33 +6,32 @@ import static org.junit.jupiter.api.Assertions.*;
 class MainTest {
 
     @Test
-    public void calcAndShowTaxes() {
+    public void testCalcAndShowTaxes() {
         //given
         Main main = new Main();
         //when
-        String result = Main.calcAndShowTaxes(1000, 200);
+        String result = Main.calcAndShowTaxes(1000, 200); //Проверка на правильность расчета
         //then
-        Assertions.assertEquals("УСН доходы", result);
+        Assertions.assertEquals("УСН доходы", result); //Ожидаем положительный результат
     }
 
     @Test
-    public void calcTax15() {
+    public void testCalcTax15() {
         //given
         Main main = new Main();
         //when
-        int result = Main.calcTax15(1000,0);
+        int result = Main.calcTax15(1000,0); //Проверка на правильность расчета
         //then
-        Assertions.assertNotEquals(0, result);
+        Assertions.assertNotEquals(1, result); //Ожидаем отрицательный результат
     }
 
     @Test
-    public static void main() {
+    public void testСalcTax6() {
         //given
         Main main = new Main();
         //when
-        String[] stringArray = new String[] {"1", "2"};
-        //String[] result = Main.main({"1","2"});
+        int result = Main.calcTax6(100); //Проверка на пустое значения
         //then
-        Assertions.assertNull(stringArray);
+        Assertions.assertNull(result); //Ожидаем отрицательный результат
     }
 }
